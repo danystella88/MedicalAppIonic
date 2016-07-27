@@ -1,0 +1,48 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-controller="tabController">
+
+
+  <!-- TAB MEDICO -->
+
+  <ion-tab title="I miei Pazienti" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper-outline" ng-click="goToMedico_ElencoPazienti()" class="{{tabMedicoShow()}}">
+    <ion-nav-view name="tab-pazienti"></ion-nav-view>
+  </ion-tab>
+
+  <!-- TAB PAZIENTE -->
+  <ion-tab title="Dati Clinici" icon-off="ion-medkit" icon-on="ion-medkit" ng-click="goToPaziente_Riepilogo()" class="{{tabPazienteShow()}}">
+    <ion-nav-view name="tab-riepilogo"></ion-nav-view>
+  </ion-tab>
+
+    <!--href="#/tab/esami" -->
+  <ion-tab title="I miei Esami" icon-off="ion-clipboard" icon-on="ion-clipboard" ng-click="goToPaziente_ElencoEsami()" class="{{tabPazienteShow()}}">
+    <ion-nav-view name="tab-elenco_esami"></ion-nav-view>
+  </ion-tab>
+
+
+  <!-- TAB COMUNI -->
+  <!-- Login -->
+
+  <ion-tab title="Login" icon-off="ion-ios-cog-outline" icon-on="ion-ios-cog" href="#/tab/login" class="{{tabSloggatoShow()}}">
+    <ion-nav-view name="tab-login"></ion-nav-view>
+  </ion-tab>
+  <!-- tab da sloggato -->
+  <ion-tab title="Registrati" icon-off="ion-ios-cog-outline" icon-on="ion-ios-cog" href="#/tab/registrazione" class="{{tabSloggatoShow()}}">
+    <ion-nav-view name="tab-registrazione"></ion-nav-view>
+  </ion-tab>
+  <!-- Account -->
+  <ion-tab title="Account" icon-off="ion-ios-person" icon-on="ion-ios-person" href="#/tab/accountmedico" class="{{tabMedicoShow()}}">
+    <ion-nav-view name="tab-accountmedico"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Account" icon-off="ion-ios-person" icon-on="ion-ios-person" href="#/tab/accountpaziente" class="{{tabPazienteShow()}}">
+    <ion-nav-view name="tab-accountpaziente"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="About" icon-off="ion-ios-information" icon-on="ion-ios-information" href="#/tab/about">
+    <ion-nav-view name="tab-about"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>

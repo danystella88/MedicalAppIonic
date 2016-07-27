@@ -1,0 +1,56 @@
+<ion-view view-title="Dettagli Esame">
+
+  <ion-nav-buttons side="primary">
+    <button class="button" ng-click="toDettaglioPaziente()">
+      Indietro
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ion-refresher
+      pulling-text="Tira per aggiornare i dati tramite internet"
+      on-refresh="aggiornaDettagliEsame()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-button-right">
+        Descrizione: {{esame.descrizione}}
+        <button class="button" ng-click="modificaDescrizione(esame)">
+          Modifica
+        </button>
+      </ion-item>
+      <ion-item class="item-button-right" ng-show="esame.completato == '0'">
+        Completato: {{esame.completatoString}}
+        <button class="button" ng-click="segnaEsameCompletato(esame)">
+          Segna come completato
+        </button>
+      </ion-item>
+      <ion-item class="item-button-right" ng-show="esame.completato == '1'" >
+        Completato: {{esame.completatoString}}
+        <button class="button" ng-click="segnaEsameNonCompletato(esame)">
+          Segna come non completato
+        </button>
+      </ion-item>
+    </ion-list>
+
+    </br></br>
+
+    <header><h3>Misurazioni ricevute</h3></header>
+
+    <ion-list>
+
+      <ion-item type="item-text-wrap" ng-hide="esistonoMisurazioni">
+        Nessuna misurazione fornita.
+      </ion-item>
+
+      <ion-item class="item-remove-animate" ng-repeat="misurazione in esame.misurazioni" type="item-text-wrap">
+
+        <p><b>{{misurazione.nome}} {{misurazione.valore}}</b></p>
+
+        <label style="float:left">
+          Inviata nel giorno <b>{{misurazione.giorno}}</b> all'orario <b>{{misurazione.orario}}</b>
+        </label>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
+

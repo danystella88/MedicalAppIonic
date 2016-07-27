@@ -1,0 +1,34 @@
+<ion-view view-title="Dati clinici">
+  <ion-nav-buttons side="primary">
+  </ion-nav-buttons>
+  <ion-content class="padding has-subheader">
+    <ion-refresher
+      pulling-text="Tira per aggiornare i dati tramite internet"
+      on-refresh="aggiornaDatiClinici()">
+    </ion-refresher>
+
+
+    <ion-list>
+
+
+        <header><h3 align="center"> Le mie Generalità</h3></header>
+
+      <ion-item>
+        Nome: {{user_info.anagrafica.nome}} {{user_info.anagrafica.cognome}}
+      </ion-item>
+
+      <ion-item>
+        Patologia: {{user_info.anagrafica.patologia}}
+      </ion-item>
+    </ion-list>
+
+      </br></br>
+
+    <header><h3 align="center">Esami da effettuare </h3></header>
+    <esame-list-da-riepilogo></esame-list-da-riepilogo>
+      </br></br>
+    <!--
+
+      </br></br>
+  </ion-content>
+</ion-view>

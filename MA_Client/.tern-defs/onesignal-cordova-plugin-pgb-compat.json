@@ -1,0 +1,36 @@
+{
+    "!name": "onesignal-cordova-plugin-pgb-compat",
+    "!define": {
+        "!modules": {
+            "OneSignal": {
+                "prototype": {
+                    "init": "fn(appId: ?, options: !modules.OneSignal.prototype.init.!1, didReceiveRemoteNotificationCallBack: fn())",
+                    "getTags": "fn(tagsReceivedCallBack: ?)",
+                    "getIds": "fn(IdsReceivedCallBack: ?)",
+                    "sendTag": "fn(key: ?, value: ?)",
+                    "sendTags": "fn(tags: ?)",
+                    "deleteTag": "fn(key: ?)",
+                    "deleteTags": "fn(keys: ?)",
+                    "registerForPushNotifications": "fn()",
+                    "enableVibrate": "fn(enable: ?)",
+                    "enableSound": "fn(enable: ?)",
+                    "enableNotificationsWhenActive": "fn(enable: ?)",
+                    "enableInAppAlertNotification": "fn(enable: ?)",
+                    "setSubscription": "fn(enable: ?)",
+                    "postNotification": "fn(jsonData: ?, onSuccess: fn(), onFailure: fn())",
+                    "promptLocation": "fn()",
+                    "setEmail": "fn(email: ?)",
+                    "setLogLevel": "fn(logLevel: ?)"
+                },
+                "!type": "fn()"
+            }
+        },
+        "!modules.OneSignal.prototype.init.!1": {},
+        "!modules.OneSignal.prototype.init.!2": "fn()",
+        "!modules.OneSignal.prototype.postNotification.!1": "fn()",
+        "!modules.OneSignal.prototype.postNotification.!2": "fn()"
+    },
+    "!plugin-version": "1.13.0",
+    "jsonKeyValue": {},
+    "OneSignal": "!modules.OneSignal"
+}

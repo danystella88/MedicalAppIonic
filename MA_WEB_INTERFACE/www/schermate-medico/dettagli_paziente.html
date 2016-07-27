@@ -1,0 +1,61 @@
+<ion-view view-title="Scheda Paziente">
+  <ion-nav-buttons side="primary">
+    <button class="button" ng-click="toListaPazienti()">
+      Indietro
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding has-subheader">
+    <ion-refresher
+      pulling-text="Tira per aggiornare i dati tramite internet"
+      on-refresh="aggiornaDettagliPaziente()">
+    </ion-refresher>
+    <header><h3>Generalità</h3></header>
+
+    <ion-list>
+
+      <ion-item>
+        Nome: {{paziente.nome}} {{paziente.cognome}}
+      </ion-item>
+      <ion-item>
+        Sesso: {{paziente.sesso}}
+      </ion-item>
+      <ion-item>
+        Data di nascita: {{paziente.dataNascita}}
+      </ion-item>
+      <ion-item class="item-button-right" ng-show="formPatologiaEnabled == 0">
+        Patologia: {{paziente.patologia}}
+        <button class="button" ng-click="showFormPatologia()">  Modifica </button>
+      </ion-item>
+      <form name="patologiaForm" ng-show="formPatologiaEnabled == 1" novalidate>
+        <label class="item item-input" name="container">
+          <input type="text" name="patologia" ng-model="patologia" placeholder="{{paziente.patologia}}" required>
+        </label>
+        <button class="button button-block button-positive" ng-show="formPatologiaEnabled == 1" ng-click="cambiaPatologia(paziente.idUtente, patologia)" > Submit </button>
+      </form>
+    </ion-list>
+
+    </br></br>
+
+    <header><h3>Esami</h3></header>
+
+      <ion-list>
+        <ion-item type="item-text-wrap" ng-show="nessunEsameVisible">
+          Nessun esame disponibile
+        </ion-item>
+        <ion-list class="item-remove-animate item-button-right" ng-repeat="esame in esami track by $index" type="item-text-wrap">
+          <ion-item href="#/tab/esami/{{esame._id}}">{{esame.descrizione}}
+
+            <label style="float:right" > <i> Completato: {{esame.completatoString}} </i></label>
+          </ion-item>
+        </ion-list>
+      </ion-list>
+
+
+
+    </br></br>
+
+    <button class="button button-balanced button-block" ng-click="goToAssegnaEsame()">
+      Assegna esame
+    </button>
+  </ion-content>
+</ion-view>

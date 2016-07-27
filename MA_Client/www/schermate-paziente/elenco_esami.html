@@ -1,0 +1,20 @@
+<ion-view view-title="I miei Esami">
+
+
+  <ion-nav-bar class="bar-stable">
+
+  </ion-nav-bar>
+
+  <ion-content>
+    <ion-refresher
+      pulling-text="Tira per aggiornare i dati tramite internet"
+      on-refresh="aggiornaElencoEsami()">
+    </ion-refresher>
+
+    <esame-list-da-elenco></esame-list-da-elenco>
+
+
+  </ion-content>
+
+
+</ion-view>

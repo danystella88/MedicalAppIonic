@@ -1,0 +1,17 @@
+<ion-view view-title="Elenco pazienti disponibili">
+  <ion-nav-buttons side="primary">
+    <button class="button" ng-click="toListaPazienti()">
+      Indietro
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+
+    <form name="filteredForm" novalidate>
+      <ion-list >
+        <ion-item class="item-button-right" collection-repeat="option in elenco_tutti_pazienti | filter: {enabled:1}" name="chosenID" ng-model="chosenID" ng-value="'option.idUtente'" class="padding">{{option.nomecognomelabel}}
+          <button class="button" ng-click="submit_filtrato(option.idUtente)">Aggiungi paziente</button>
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view view-title="Dati di Automisurazione">
+  <ion-nav-buttons side="primary">
+    <button class="button" onclick="window.history.back()">
+      Indietro
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+
+    <form name="myForm"  novalidate>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Nome del parametro rilevato</span>
+        <input type="text" name="descrizione" ng-model="descrizione" ng-required="true" required>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label"> Valore {{descrizione}} </span>
+        <input type="text" name="valore" ng-model="valore" ng-required="true" required>
+      </label>
+
+
+    </form>
+
+    <div class="card" ng-show="myForm.$invalid">
+      <div class="item item-text-wrap">
+        <p ng-show="myForm.descrizione.$error.required">* Il nome della misurazione non può essere vuoto.</p>
+        <p ng-show="myForm.valore.$error.required">* Il valore non può essere vuoto.</p>
+      </div>
+    </div>
+    <div class="padding">
+      <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="inviaDatiMisurazione(descrizione,valore)">Invia</button>
+    </div>
+  </ion-content>
+</ion-view>

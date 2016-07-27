@@ -1,0 +1,26 @@
+
+  <!-- ELENCO ESAMI -->
+
+  <ion-list>
+    <ion-item class="item-remove-animate" ng-show="nessunaEsameVisible">
+      Non hai nessun esame prescritto!
+    </ion-item>
+  </ion-list>
+
+  <div ng-hide="nessunEsameVisible">
+    <ion-list can-swipe="true">
+
+      <ion-list class="item-remove-animate" ng-repeat="esame in esami | filter: {completato : '0'}" type="item-text-wrap" >
+
+        <ion-item ng-show="esame.completato" href="#/tab/esamipdar/{{esame._id}}">
+          {{esame.descrizione}}
+
+        </ion-item>
+        <ion-item ng-hide="esame.completato" href="#/tab/esamipdar/{{esame._id}}">{{esame.descrizione}}</ion-item>
+      </ion-list>
+    </ion-list>
+  </div>
+
+
+
+

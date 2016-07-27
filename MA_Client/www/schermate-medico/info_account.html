@@ -1,0 +1,33 @@
+<ion-view view-title="Il mio Account">
+  <ion-content padding="true">
+
+    <ion-list>
+      <ion-item>
+        Nome: {{user_info.anagrafica.nome}} {{user_info.anagrafica.cognome}}
+      </ion-item>
+      <ion-item>
+        Luogo di Nascita: {{user_info.anagrafica.luogoNascita}} ({{user_info.anagrafica.provinciaNascita}})
+      </ion-item>
+      <ion-item>
+        Data di nascita: {{user_info.anagrafica.dataNascita}}
+      </ion-item>
+      <ion-item>
+        Specializzazione: {{user_info.anagrafica.specializzazione}}
+      </ion-item>
+      <ion-item>
+        Codice Fiscale: {{user_info.anagrafica.cfiscale}}
+      </ion-item>
+      <ion-item>
+        Username: {{user_info.user}}
+      </ion-item>
+
+
+    </ion-list>
+    <!--
+    <div class="padding">
+      <button class="button button-balanced button-block" ng-click="logout()">
+        Logout
+      </button>
+    </div> -->
+  </ion-content>
+</ion-view>

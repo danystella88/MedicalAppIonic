@@ -1,0 +1,28 @@
+<ion-view view-title="Il mio Account">
+  <ion-content class="padding has-subheader">    <!-- Questi dettagli verranno visualizzati se sono loggato da paziente, login type 2 -->
+
+    <dettagli-paziente-da-paziente></dettagli-paziente-da-paziente>
+
+    </br></br>
+    <ion-list>
+
+          <h3 align="center"><u> Generalità del Medico Curante </u> </h3>
+
+      <ion-item>
+        Medico curante: {{user_info.medico.nome}} {{user_info.medico.cognome}}
+
+      </ion-item>
+      <ion-item>
+        Specializzazione: {{user_info.medico.specializzazione}}
+      </ion-item>
+   </ion-list>
+
+    <div class="padding">
+      <button class="button button-balanced button-block" ng-click="logout()">
+        Logout
+      </button>
+    </div>
+
+
+  </ion-content>
+</ion-view>

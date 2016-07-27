@@ -1,0 +1,27 @@
+<ion-view view-title="I miei Pazienti">
+  <ion-nav-buttons side="primary">
+
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Tira per aggiornare i dati tramite internet"
+      on-refresh="aggiornaListaPazienti()">
+    </ion-refresher>
+    <ion-list>
+      <swype-to-remove-item></swype-to-remove-item>
+      <ion-item  class="item-remove-animate" ng-repeat="paziente in elenco_pazienti" href="#/tab/pazienti/{{paziente.idUtente}}" type="item-text-wrap">
+        <h2><u><b>{{paziente.nome}} {{paziente.cognome}}</b></u></h2>
+        <p>Nato il: {{paziente.dataNascita}}</p>
+        <p>Patologia: <b>{{paziente.patologia}}</b> </p>
+        <ion-option-button class="button-assertive" ng-click="removePaziente(paziente.idUtente)">
+          Rimuovi
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <div class="padding">
+      <button class="button button-balanced button-block" ng-click="addPaziente()">
+        Aggiungi paziente
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

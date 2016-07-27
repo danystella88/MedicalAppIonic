@@ -1,0 +1,26 @@
+<div id="assegnaesameform" ng-show="mostraEsameBox">
+  <form name="myForm"  novalidate>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Descrizione</span>
+      <input type="text" name="descrizione" ng-model="descrizioneE" required placeholder="Inserisci una descrizione dell'esame">
+    </label>
+  </form>
+
+  <div class="card" ng-show="myForm.$invalid">
+    <div class="item item-text-wrap">
+      <p ng-show="myForm.descrizioneE.$error.required">* Il campo descrizione non può essere vuoto.</p>
+    </div>
+  </div>
+  <div class="padding">
+    <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="assegnaEsame(descrizioneE)">Assegna Esame</button>
+  </div>
+</div>
+
+<div class="padding">
+  <button class="button button-balanced button-block" ng-click="showAssegnaEsameBox()" ng-hide="mostraEsameBox">
+    Assegna esame
+  </button>
+  <button class="button button-balanced button-block" ng-click="hideAssegnaEsameBox()" ng-show="mostraEsameBox">
+    Annulla
+  </button>
+</div>

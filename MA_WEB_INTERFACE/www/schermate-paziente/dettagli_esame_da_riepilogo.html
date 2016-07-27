@@ -1,0 +1,50 @@
+<ion-view view-title="Dettagli Esame">
+
+  <ion-nav-buttons side="primary">
+    <button class="button" ui-sref="tab.riepilogo">
+      Indietro
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <ion-refresher
+      pulling-text="Tira per aggiornare i dati tramite internet"
+      on-refresh="aggiornaDettagliEsame()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-button-right">
+        Descrizione: {{esame.descrizione}}
+
+      </ion-item>
+      <ion-item class="item-button-right">
+        Completato: {{esame.completato}}
+
+      </ion-item>
+      </ion-list></br></br>
+      <header><h3>Le tue misurazioni</h3></header>
+
+      <ion-list>
+        <ion-item class="item-remove-animate" ng-repeat="misurazione in esame.misurazioni" type="item-text-wrap">
+
+
+          <p><b>{{misurazione.nome}}</b> {{misurazione.valore}} {{misurazione.data}}</p>
+
+          <label style="float:left">
+            Inviata nel giorno <b>{{misurazione.giorno}}</b> all'orario <b>{{misurazione.orario}}</b>
+          </label>
+
+          <ion-option-button class="button-assertive" ng-click="removeMisurazione(misurazione.nome)">
+            Rimuovi
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+
+      <div class="padding">
+        <button  class="button button-balanced button-block" ng-click="addMisurazione()">
+          Invia una nuova Misurazione
+        </button>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

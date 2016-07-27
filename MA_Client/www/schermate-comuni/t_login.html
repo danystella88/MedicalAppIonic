@@ -1,0 +1,35 @@
+<ion-view view-title="Login">
+    <ion-content padding="true">
+        <div class="banner"></div>
+        <label class="item item-input item-stacked-label">
+            <h2>Dati per fare i test </h2><br>
+            MEDICO: user: <b>umbertom@a.it</b>, pass: <b>umbertom</b><br>
+            PAZIENTE: user: <b>bensp@a.it</b>, pass: <b>bensp</b><br>
+        </label>
+        <form name="myForm"  novalidate>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input type="email" name="username" ng-model="username" ng-pattern="/^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/i" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Password</span>
+                <input type="password" name="password" ng-model="password" ng-minlength="3" ng-required="true" required>
+            </label>
+        </form>
+
+        <div class="card" ng-show="myForm.$invalid">
+            <div class="item item-text-wrap">
+                <p ng-show="myForm.username.$error.required">* L'username non può essere vuoto.</p>
+                <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* L'username deve essere una mail valida.</p>
+                <p ng-show="myForm.username.$error.$invalid && !myForm.username.$pristine && myForm.username.$error.email">* L'username2 deve essere una mail valida.</p>
+                <p ng-show="myForm.password.$error.required">* La password non può essere vuota.</p>
+                <p ng-show="myForm.password.$error.minlength">* La password deve essere almeno di 3 caratteri</p>
+            </div>
+        </div>
+        <div class="padding">
+            <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(username,password)">Login</button>
+        </div>
+    </ion-content>
+</ion-view>
+
+
